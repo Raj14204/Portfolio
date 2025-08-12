@@ -1,0 +1,556 @@
+ body {
+  background-color: #0f0f0f;
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Restrict width of sidebar card */
+/* .profile-card {
+  background-color: #1c1c1e;
+  border-radius: 20px;
+  padding: 2rem 1.5rem;
+  max-width: 280px; 
+  width: 100%;
+  text-align: center;
+  margin-bottom: 2rem;
+} */
+.profile-card {
+  background-color: #1c1c1e;
+  border-radius: 20px;
+  padding: 2rem 1.5rem;
+  width: 100%;
+  max-width: 350px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+@media (max-width: 991.98px) {
+  .profile-card {
+    max-width: 100%;       /* Allow it to expand */
+    border-radius: 20px;      /* Match reference (square edges) */
+    margin: 0;             /* Remove horizontal margin */
+    padding: 2.5rem 2rem;
+  }
+}
+
+/* Make profile image larger and rounded */
+.profile-card img {
+  border-radius: 16px;
+  width: 100%;
+  height: auto;
+  margin-bottom: 1.5rem;
+}
+
+/* Don’t let the image stretch too wide */
+.profile-card img {
+  max-width: 240px;
+  margin: 0 auto 1.5rem;
+}
+
+/* Name styling */
+.profile-name {
+  font-weight: 700;
+  font-size: 1.75rem; /* Slightly bigger text */
+}
+
+/* Role styling */
+.profile-role {
+  font-size: 1.05rem;
+  opacity: 0.85;
+  margin-bottom: 1rem;
+}
+
+/* Social icons spacing */
+.social-icons a {
+  color: #fff;
+  margin: 0 0.6rem;
+  font-size: 1.3rem;
+background-color: transparent;
+  border-radius: 20%;
+  padding: 5px;
+  /* margin-right: 10px; */
+   transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.social-icons a:hover {
+  background-color: #8c40e6;
+  /* transform: scale(1.1); */
+}
+/* Button styling */
+.talk-button {
+  margin-top: 1.5rem;
+  background-color: #a259ff;
+  border: none;
+  color: white;
+  font-weight: 600;
+  padding: 0.6rem 1.5rem;
+  border-radius: 12px;
+  transition: background-color 0.3s ease;
+}
+.talk-button:hover {
+  background-color: #8c40e6;
+}
+
+/* Sticky behavior */
+@media (min-width: 768px) {
+  .sticky-md-top {
+    position: sticky;
+    top: 20px;
+  }
+  
+}
+
+    /* header css */
+    .header {
+  position: relative;
+  z-index: 1000;
+}
+.icon-nav {
+  position: fixed;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%); /* center horizontally */
+  
+  background: rgba(30, 30, 30, 0.9);
+  backdrop-filter: blur(8px);
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  z-index: 999;
+  width: fit-content;
+}
+
+
+    .icon-btn {
+      background: transparent;
+      border: none;
+      color: white;
+      padding: 0.5rem;
+      border-radius: 0.75rem;
+      position: relative;
+      transition: background 0.3s ease;
+    }
+
+    .icon-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .icon-btn.active {
+      background: #a855f7 !important; /* Purple */
+      color: white;
+    }
+
+    .tooltip-bubble {
+      position: absolute;
+      bottom: -1.8rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: black;
+      color: white;
+      padding: 2px 8px;
+      border-radius: 0.25rem;
+      font-size: 0.75rem;
+      opacity: 0;
+      white-space: nowrap;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+    }
+
+    .icon-btn:hover .tooltip-bubble {
+      opacity: 1;
+    }
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+    /* header end  */
+    /* slider */
+    .body-slide{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 90vh;
+     
+        overflow: hidden;
+    }
+   .slider-container{
+        position: relative;
+        width: 800px;
+        height: 400px;
+        perspective: 1000px;
+        }
+    .slider{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        transform-style: preserve-3d;
+        animation: rotate 40s infinite linear;
+          animation-play-state: running;
+    }
+
+    .slide{
+        position: absolute;
+        width: 60%;
+        height: 80%;
+        left: 20%;
+        top: 10%;
+        border-radius: 15px;
+        overflow: hidden;
+        cursor: pointer;
+        box-shadow: 0 10px 30px rgb(0, 0, 0,0.3);
+        transform-style: preserve-3d;
+
+        transition: transform 1s;
+
+    } 
+
+    .slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .slide:nth-child(1){transform: rotateY(0deg) translateZ(400px);}
+    .slide:nth-child(2){transform: rotateY(90deg) translateZ(400px);}
+    .slide:nth-child(3){transform: rotateY(180deg) translateZ(400px);}
+    .slide:nth-child(4){transform: rotateY(270deg) translateZ(400px);}
+    @keyframes rotate {
+        0% {transform: rotateY(0deg);}
+        25% {transform: rotateY(90deg);}
+        50% {transform: rotateY(180deg);}
+        75% {transform: rotateY(270deg);}
+        100% {transform: rotateY(360deg);}
+
+    }
+    /* pause animation */
+    /* .slider-container:hover .slider{
+        animation-play-state: paused;
+    } */
+    /* slider end */
+    /* loader start */
+    .loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #0f0f0f; /* Optional: dark background */
+}
+
+.flipping-cards {
+  display: flex;
+  justify-content: space-between;
+  width: 350px;
+  gap: 10px;
+}
+
+.card1 {
+  width: 40px;
+  height: 40px;
+  background-color: #a259ff;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  border-radius: 6px;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  animation: flip 3s infinite ease-in-out;
+}
+
+/* Add delay for each card */
+.card1:nth-child(1) { animation-delay: 0s; }
+.card1:nth-child(2) { animation-delay: 0.2s; }
+.card1:nth-child(3) { animation-delay: 0.4s; }
+.card1:nth-child(4) { animation-delay: 0.6s; }
+.card1:nth-child(5) { animation-delay: 0.8s; }
+.card1:nth-child(6) { animation-delay: 1s; }
+.card1:nth-child(7) { animation-delay: 1.2s; }
+
+@keyframes flip {
+  0%, 100% {
+    transform: rotateY(0deg);
+  }
+  50% {
+    transform: rotateY(180deg);
+  }
+}
+.loader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #0f0f0f;
+  z-index: 9999;
+}
+
+    /* loader end */
+.head{
+  font-size: 50px;
+}
+.fcolor{
+  color:#a259ff;
+}
+/* my work button */
+.work    {
+  text-decoration: none;
+  color: inherit; /* Keeps the link color same as surrounding text unless otherwise styled */
+}
+
+.work:hover {
+  color: #a259ff; 
+  text-decoration: underline; /* Optional: adds underline on hover */
+}
+/* card css */
+ .project-card {
+background-color: #1c1c1c;
+border-radius: 20px;
+overflow: hidden;
+transition: all 0.3s ease;
+            }
+
+            .project-card img {
+              width: 100%;
+              height: auto;
+              transition: transform 0.4s ease;
+            }
+
+            .project-card:hover img {
+              transform: scale(1.05);
+            }
+
+            .project-content {
+              padding: 20px;
+              color: #ffffff;
+              transition: color 0.3s ease;
+            }
+
+            .project-card:hover .project-title {
+              color: #a259ff;
+            }
+
+            .project-title {
+              font-size: 1.5rem;
+              font-weight: 600;
+              margin-bottom: 0;
+            }
+
+            .project-subtitle {
+              font-size: 1rem;
+              color: #ccc;
+            }
+             .project-date {
+              font-size: 1rem;
+
+              color: #ccc;
+margin-bottom: 1px;
+            }
+
+            .project-name {
+              font-size: 1.5rem;
+              margin: 0;
+              font-weight: 600;
+
+            }
+             .project-card:hover .project-name {
+              color: #a259ff;
+            }
+/* card css end */
+/* skills css  */
+ .heading {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .highlight {
+      color: #b284ff;
+    }
+
+    .skill-card {
+      background-color: #1e1e1e;
+      border-radius: 15px;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      transition: transform 0.3s;
+    }
+
+    .skill-card:hover {
+      transform: scale(1.03);
+      background-color: #b284ff !important;
+
+    }
+
+    .icon-box {
+      width: 50px;
+      height: 50px;
+      background-color: #2e2e2e;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      font-size: 20px;
+    }
+
+    /* .primary-skill {
+      background-color: #b284ff !important;
+      color: black !important;
+    } */
+/* skills css ends */
+/* testimonial start */
+
+/* testimonial end */
+/* faq start */
+ .faq-section {
+      padding: 60px 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .faq-section h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .highlight {
+      color: #b284ff;
+    }
+
+    .accordion-button {
+      background-color: #1e1e1e;
+      color: #fff;
+      border: none;
+    }
+
+    .accordion-button:focus {
+      box-shadow: none;
+    }
+
+    .accordion-button::after {
+      filter: invert(1);
+    }
+
+    .accordion-item {
+      background-color: #1e1e1e;
+      border: none;
+      margin-bottom: 10px;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .accordion-body {
+      color: #ccc;
+    }
+/* faq end */
+.text-deco{
+  text-decoration: none;
+}
+
+/* contact */
+  .contact-section {
+    max-width: 600px;
+    margin: auto;
+  }
+
+  .contact-section h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 40px;
+  }
+
+  .contact-section h1 span {
+    background: linear-gradient(to right, #8e2de2, #4a00e0); /* Purple gradient */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .contact-form {
+    background-color: #1f1f1f;
+    padding: 30px;
+    border-radius: 20px;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    background-color: #2c2c2c;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 1rem;
+  }
+
+  .form-group textarea {
+    resize: vertical;
+    height: 120px;
+  }
+
+  .form-group input::placeholder,
+  .form-group textarea::placeholder {
+    color: #aaa;
+  }
+
+  .submit-btn {
+    background-color: #8e2de2;
+    background-image: linear-gradient(to right, #8e2de2, #4a00e0);
+    border: none;
+    padding: 12px 25px;
+    color: white;
+    font-size: 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+  }
+
+  .submit-btn:hover {
+    opacity: 0.9;
+  }
+/* contact end */
+/* expirence */
+.profile-image-wrapper {
+  display: inline-block;
+  overflow: hidden;
+  border-radius: 20px; /* You can make it 50% for a perfect circle */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  max-width: 100%;
+  max-height: 500px;
+}
+
+.profile-img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.profile-img:hover {
+  transform: scale(1.03);
+}
+
+/* end exp */
+@media (max-width: 768px) {
+  .head {
+   font-size: 24px;
+  }
+  
+}
+a{
+  text-decoration: none;
+}
