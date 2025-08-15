@@ -554,3 +554,65 @@ margin-bottom: 1px;
 a{
   text-decoration: none;
 }
+/* Certificate */
+   .certificates-wrapper {
+      overflow-x: auto;
+      display: flex;
+      gap: 1rem;
+      padding-bottom: 10px;
+      scrollbar-width: none;
+    }
+    .certificates-wrapper::-webkit-scrollbar { display: none; }
+
+    .certificate-card {
+      min-width: 250px;
+      flex: 0 0 auto;
+      cursor: pointer;
+    background-color: #1c1c1c;
+      color: white;
+      border-radius: 20px;
+    }
+     .certificate-card:hover {
+    color: #8e2de2; 
+    }
+    .certificate-card img {
+      height: 160px;
+      object-fit: cover;
+      border-radius: 20px;
+    }
+
+    /* Lightbox styles */
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.9);
+      justify-content: center;
+      align-items: center;
+      z-index: 1050;
+      flex-direction: column;
+    }
+    .lightbox img {
+      max-width: 90%;
+      max-height: 80%;
+    }
+    .lightbox .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 40px;
+      color: white;
+      cursor: pointer;
+    }
+    .lightbox .nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 50px;
+      color: white;
+      cursor: pointer;
+      user-select: none;
+    }
+    .lightbox .prev-btn { left: 20px; }
+    .lightbox .next-btn { right: 20px; }
