@@ -1,144 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
-
-
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Designing a Scalable Product & Service Database with Categories, Subcategories & Images</title>
-    <meta name="description" content="Learn how to design a scalable database for products and services, including categories, subcategories, and images, with SQL table examples and best practices.">
-    <meta name="keywords" content="database design, ecommerce database, SQL category subcategory, MySQL products table, scalable database structure, ecommerce schema">
-    <meta name="author" content="Prathamesh Majalkar">
-    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <title>
+      Designing a Scalable Product & Service Database with Categories,
+      Subcategories & Images
+    </title>
+    <meta
+      name="description"
+      content="Learn how to design a scalable database for products and services, including categories, subcategories, and images, with SQL table examples and best practices."
+    />
+    <meta
+      name="keywords"
+      content="database design, ecommerce database, SQL category subcategory, MySQL products table, scalable database structure, ecommerce schema"
+    />
+    <meta name="author" content="Prathamesh Majalkar" />
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="css/bootstrap.min.css" />
 
     <link rel="stylesheet" href="css/all.min.css" />
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
 
-</head>
-
-
-<body>
+  <body>
     <!-- loader -->
     <div class="loader-container">
-        <div class="flipping-cards">
-            <div class="card"><i class="fa-brands fa-html5"></i></div>
-            <div class="card"><i class="fa-brands fa-php"></i></div>
-            <div class="card"><i class="fa-brands fa-react"></i></div>
-            <div class="card"><i class="fa-brands fa-js"></i></div>
-            <div class="card"><i class="fa-brands fa-css3-alt"></i></div>
-            <div class="card"><i class="fa-solid fa-database"></i></div>
-            <div class="card"><i class="fa-brands fa-git-alt"></i></div>
-        </div>
+      <div class="flipping-cards">
+        <div class="card"><i class="fa-brands fa-html5"></i></div>
+        <div class="card"><i class="fa-brands fa-php"></i></div>
+        <div class="card"><i class="fa-brands fa-react"></i></div>
+        <div class="card"><i class="fa-brands fa-js"></i></div>
+        <div class="card"><i class="fa-brands fa-css3-alt"></i></div>
+        <div class="card"><i class="fa-solid fa-database"></i></div>
+        <div class="card"><i class="fa-brands fa-git-alt"></i></div>
+      </div>
     </div>
     <!-- loader end -->
-   <nav class="header">
-    <div class="icon-nav shadow">
+    <div class="main-content">
+      <nav class="header">
+        <div class="icon-nav shadow">
+          <a href="index.html" class="icon-btn" aria-label="Home">
+            <i class="fa-solid fa-house"></i>
+            <span class="tooltip-bubble">Home</span>
+          </a>
 
-      <a href="index.html" class="icon-btn " aria-label="Home">
-        <i class="fa-solid fa-house"></i>
-        <span class="tooltip-bubble">Home</span>
-      </a>
+          <a href="projects.html" class="icon-btn" aria-label="Projects">
+            <i class="fa-regular fa-folder"></i>
+            <span class="tooltip-bubble">Projects</span>
+          </a>
 
-      <a href="projects.html" class="icon-btn " aria-label="Projects">
-        <i class="fa-regular fa-folder"></i>
-        <span class="tooltip-bubble">Projects</span>
-      </a>
+          <a href="experience.html" class="icon-btn" aria-label="Experience">
+            <i class="fa-solid fa-briefcase"></i>
+            <span class="tooltip-bubble">Experience</span>
+          </a>
 
-      <a href="experience.html" class="icon-btn " aria-label="Experience">
-        <i class="fa-solid fa-briefcase"></i>
-        <span class="tooltip-bubble">Experience</span>
-      </a>
+          <a href="blogs.html" class="icon-btn active" aria-label="Blogs">
+            <i class="fa-regular fa-pen-to-square"></i>
+            <span class="tooltip-bubble">Blogs</span>
+          </a>
 
-      <a href="blogs.html" class="icon-btn active " aria-label="Blogs">
-        <i class="fa-regular fa-pen-to-square"></i>
-        <span class="tooltip-bubble">Blogs</span>
-      </a>
+          <a href="contact.html" class="icon-btn" aria-label="Contact">
+            <i class="fa-solid fa-envelope"></i>
+            <span class="tooltip-bubble">Contact</span>
+          </a>
+        </div>
+      </nav>
 
-      <a href="contact.html" class="icon-btn " aria-label="Contact">
-        <i class="fa-solid fa-envelope"></i>
-        <span class="tooltip-bubble">Contact</span>
-      </a>
-
-    </div>
-  </nav>
-
-
-
-
-    <style>
+      <style>
         .blog-container {
-            max-width: 900px;
-            margin: auto;
-            background: #262222ff;
-            padding: 20px;
-            border-radius: 8px;
+          max-width: 900px;
+          margin: auto;
+          background: #262222ff;
+          padding: 20px;
+          border-radius: 8px;
         }
 
         img.blog-image {
-            display: block;
-            margin: auto;
-            max-width: 100%;
-            height: auto;
-            border-radius: 6px;
+          display: block;
+          margin: auto;
+          max-width: 100%;
+          height: auto;
+          border-radius: 6px;
         }
 
         pre code {
-            background-color: #121111ff;
-            display: block;
-            padding: 15px;
-            border-radius: 6px;
+          background-color: #121111ff;
+          display: block;
+          padding: 15px;
+          border-radius: 6px;
         }
 
         .copy-btn {
-            position: absolute;
-            right: 15px;
-            top: 15px;
-            font-size: 0.9rem;
+          position: absolute;
+          right: 15px;
+          top: 15px;
+          font-size: 0.9rem;
         }
 
         .code-block {
-            position: relative;
-            margin-bottom: 20px;
+          position: relative;
+          margin-bottom: 20px;
         }
-    </style>
-    <div class="container py-5">
+      </style>
+      <div class="container py-5">
         <div class="blog-container shadow-sm">
+          <!-- Blog Image -->
+          <img
+            src="img/blogs/blog-1.png"
+            alt="Blog Image"
+            class="blog-image mb-4"
+          />
 
-            <!-- Blog Image -->
-            <img src="img/blogs/blog-1.png" alt="Blog Image" class="blog-image mb-4">
+          <!-- Title & Author -->
+          <h1 class="mb-3 text-center">
+            Designing a Scalable Product & Service Database (With Categories,
+            Subcategories & Images)
+          </h1>
+          <p class="text-muted text-center mb-4">
+            By <strong>Prathamesh Majalkar</strong> •
+            <small>Aug 10, 2025</small>
+          </p>
 
-            <!-- Title & Author -->
-            <h1 class="mb-3 text-center">Designing a Scalable Product & Service Database (With Categories, Subcategories & Images)</h1>
-            <p class="text-muted text-center mb-4">By <strong>Prathamesh Majalkar</strong> • <small>Aug 10, 2025</small></p>
+          <p>
+            A well-structured database is the backbone of any e-commerce or
+            service listing platform. Without proper design, you risk slow
+            queries, inconsistent data, and poor scalability. In this post, I’ll
+            walk you through an optimized structure for handling products or
+            services with categories, subcategories, and images.
+          </p>
 
-            <p>
-                A well-structured database is the backbone of any e-commerce or service listing platform.
-                Without proper design, you risk slow queries, inconsistent data, and poor scalability.
-                In this post, I’ll walk you through an optimized structure for handling products or services with categories, subcategories, and images.
-            </p>
+          <h5>Why Use Categories & Subcategories</h5>
+          <ul>
+            <li>
+              <strong>Flexibility:</strong> Organize products without repeating
+              category names.
+            </li>
+            <li>
+              <strong>Normalization:</strong> Avoids redundant data and keeps
+              relationships clean.
+            </li>
+            <li>
+              <strong>Future-proofing:</strong> Easy to add more hierarchy
+              levels later.
+            </li>
+            <li>
+              <strong>Performance:</strong> Indexed IDs improve query speed for
+              filtering.
+            </li>
+          </ul>
 
-            <h5>Why Use Categories & Subcategories</h5>
-            <ul>
-                <li><strong>Flexibility:</strong> Organize products without repeating category names.</li>
-                <li><strong>Normalization:</strong> Avoids redundant data and keeps relationships clean.</li>
-                <li><strong>Future-proofing:</strong> Easy to add more hierarchy levels later.</li>
-                <li><strong>Performance:</strong> Indexed IDs improve query speed for filtering.</li>
-            </ul>
+          <h5>Field Design & Common Columns</h5>
+          <p>
+            Each table includes:
+            <code>id</code> (primary key),
+            <code>status</code> (active/inactive), <code>created_at</code>, and
+            <code>updated_at</code>. Images are stored as file paths or URLs
+            instead of binary data to keep the database lightweight.
+          </p>
 
-            <h5>Field Design & Common Columns</h5>
-            <p>
-                Each table includes:
-                <code>id</code> (primary key), <code>status</code> (active/inactive),
-                <code>created_at</code>, and <code>updated_at</code>.
-                Images are stored as file paths or URLs instead of binary data to keep the database lightweight.
-            </p>
-
-            <h5>SQL Schema</h5>
-            <div class="code-block">
-                <button class="btn btn-sm btn-outline-secondary copy-btn" onclick="copyCode()">Copy</button>
-                <pre><code id="code-text">CREATE TABLE categories (
+          <h5>SQL Schema</h5>
+          <div class="code-block">
+            <button
+              class="btn btn-sm btn-outline-secondary copy-btn"
+              onclick="copyCode()"
+            >
+              Copy
+            </button>
+            <pre><code id="code-text">CREATE TABLE categories (
   id INT AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(255) NOT NULL,
   description TEXT,
@@ -173,95 +202,158 @@ CREATE TABLE products (
   updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   FOREIGN KEY (subcategory_id) REFERENCES subcategories(id) ON DELETE CASCADE
 );</code></pre>
-            </div>
+          </div>
 
-            <h5>Best Practices</h5>
-            <ul>
-                <li>Store relative paths (e.g., <code>/uploads/products/img.jpg</code>) for easy migration.</li>
-                <li>Index foreign keys for faster joins.</li>
-                <li>Use <code>status</code> instead of deleting records to keep history.</li>
-                <li>Validate image uploads before saving to prevent broken links or malicious files.</li>
-            </ul>
+          <h5>Best Practices</h5>
+          <ul>
+            <li>
+              Store relative paths (e.g.,
+              <code>/uploads/products/img.jpg</code>) for easy migration.
+            </li>
+            <li>Index foreign keys for faster joins.</li>
+            <li>
+              Use <code>status</code> instead of deleting records to keep
+              history.
+            </li>
+            <li>
+              Validate image uploads before saving to prevent broken links or
+              malicious files.
+            </li>
+          </ul>
 
-            <p>
-                This database structure keeps your data organized, easy to maintain, and ready to scale — whether you have a handful of products or millions.
-            </p>
+          <p>
+            This database structure keeps your data organized, easy to maintain,
+            and ready to scale — whether you have a handful of products or
+            millions.
+          </p>
         </div>
-    </div>
-    <!-- Copy Code Script -->
-    <script>
+      </div>
+      <!-- Copy Code Script -->
+      <script>
         function copyCode() {
-            const code = document.getElementById('code-text').innerText;
-            navigator.clipboard.writeText(code).then(() => {
-                alert('Code copied to clipboard!');
-            });
+          const code = document.getElementById("code-text").innerText;
+          navigator.clipboard.writeText(code).then(() => {
+            alert("Code copied to clipboard!");
+          });
         }
-    </script>
-    <footer class=" text-light mt-5">
+      </script>
+      <footer class="text-light mt-5">
         <div class="container py-5">
-            <div class="row">
-                <!-- Column 1: About -->
-                <div class="col-lg-3 col-md-6 col-12 mb-4">
-                    <h5>About Me</h5>
-                    <p>I'm a passionate programmer and software developer specializing in building responsive, user-friendly websites and web applications that solve real-world problems.
-
-                    </p>
-                </div>
-
-                <!-- Column 2: Quick Links -->
-                <div class="col-lg-3 col-md-6 col-12 mb-4">
-                    <h5>Quick Links</h5>
-                    <ul class="list-unstyled ">
-                        <li><a href="#about" class="text-light text-decoration-none mb-2">About</a></li>
-                        <li><a href="#blog" class="text-light text-decoration-none mb-2">Skills</a></li>
-
-                        <li><a href="#projects" class="text-light text-decoration-none mb-2">Projects</a></li>
-                        <li><a href="#contact" class="text-light text-decoration-none mb-2">Contact</a></li>
-                        <li><a href="#blog" class="text-light text-decoration-none mb-2">Blog</a></li>
-                    </ul>
-                </div>
-
-                <!-- Column 3: Contact Info -->
-                <div class="col-lg-3 col-md-6 col-12 mb-4">
-                    <h5>Contact</h5>
-                    <ul class="list-unstyled">
-                        <li>Email: <a href="mailto:majalkarprathamesh14@gmail.com" class="text-light text-decoration-none">majalkarprathamesh14@gmail.com</a></li>
-
-                        <li>Contact me : <a href="contact.html" class="text-deco">Click</a> </li>
-                        <li></li>
-                    </ul>
-                </div>
-
-                <!-- Column 4: Social Media -->
-                <div class="col-lg-3 col-md-6 col-12 mb-4">
-                    <h5>Follow Me</h5>
-                    <div class="social-icons mt-3">
-                        <a href="https://github.com/your-username" target="_blank"><i class="fab fa-github"></i></a>
-                        <a href="https://www.linkedin.com/in/your-profile" target="_blank"><i class="fab fa-linkedin"></i></a>
-
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fas fa-envelope"></i></a>
-                    </div>
-                    <button class="talk-button">Let's Talk</button>
-                </div>
+          <div class="row">
+            <!-- Column 1: About -->
+            <div class="col-lg-3 col-md-6 col-12 mb-4">
+              <h5>About Me</h5>
+              <p>
+                I'm a passionate programmer and software developer specializing
+                in building responsive, user-friendly websites and web
+                applications that solve real-world problems.
+              </p>
             </div>
-            <hr class="border-light">
-            <p class="text-center mb-0">&copy; 2025 Prathamesh Majalkar. Designed & developed by me with ❤️</p>
 
+            <!-- Column 2: Quick Links -->
+            <div class="col-lg-3 col-md-6 col-12 mb-4">
+              <h5>Quick Links</h5>
+              <ul class="list-unstyled">
+                <li>
+                  <a
+                    href="index.html"
+                    class="text-light text-decoration-none mb-2"
+                    >Home</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="experience.html"
+                    class="text-light text-decoration-none mb-2"
+                    >Skills</a
+                  >
+                </li>
+
+                <li>
+                  <a
+                    href="projects.html"
+                    class="text-light text-decoration-none mb-2"
+                    >Projects</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="contact.html"
+                    class="text-light text-decoration-none mb-2"
+                    >Contact</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="blogs.html"
+                    class="text-light text-decoration-none mb-2"
+                    >Blog</a
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <!-- Column 3: Contact Info -->
+            <div class="col-lg-3 col-md-6 col-12 mb-4">
+              <h5>Contact</h5>
+              <ul class="list-unstyled">
+                <li>
+                  Email:
+                  <a
+                    href="mailto:majalkarprathamesh14@gmail.com"
+                    class="text-light text-decoration-none"
+                    >majalkarprathamesh14@gmail.com</a
+                  >
+                </li>
+
+                <li>
+                  Contact me : <a href="contact.html" class="text-deco">Click</a>
+                </li>
+                <li></li>
+              </ul>
+            </div>
+
+            <!-- Column 4: Social Media -->
+            <div class="col-lg-3 col-md-6 col-12 mb-4">
+              <h5>Follow Me</h5>
+              <div class="social-icons mt-3">
+                <a href="https://github.com/Raj14204" target="_blank"
+                  ><i class="fab fa-github"></i
+                ></a>
+                <a
+                  href="https://www.linkedin.com/in/prathamesh-mj/"
+                  target="_blank"
+                  ><i class="fab fa-linkedin"></i
+                ></a>
+
+                <a href="https://www.instagram.com/raj14204/"
+                  ><i class="fab fa-instagram"></i
+                ></a>
+                <a href="contact.html"><i class="fas fa-envelope"></i></a>
+              </div>
+              <button class="talk-button">
+                <a
+                  href="contact.html"
+                  style="text-decoration: none; color: inherit"
+                  >Let's Talk</a
+                >
+              </button>
+            </div>
+          </div>
+          <hr class="border-light" />
+          <p class="text-center mb-0">
+            &copy; 2025 Prathamesh Majalkar. Designed & developed by me with ❤️
+          </p>
         </div>
-    </footer>
-
+      </footer>
+    </div>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/main.js"></script>
 
     <script>
-        window.addEventListener('load', () => {
-            document.querySelector('.loader-container').style.display = 'none';
-            document.querySelector('.main-content').style.display = 'block';
-        });
+      window.addEventListener("load", () => {
+        document.querySelector(".loader-container").classList.add("hidden");
+      });
     </script>
-
-
-</body>
-
+  </body>
 </html>

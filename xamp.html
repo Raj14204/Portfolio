@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Designing a Scalable Product & Service Database with Categories,
+      Subcategories & Images
+    </title>
+    <meta
+      name="description"
+      content="Learn how to design a scalable database for products and services, including categories, subcategories, and images, with SQL table examples and best practices."
+    />
+    <meta
+      name="keywords"
+      content="database design, ecommerce database, SQL category subcategory, MySQL products table, scalable database structure, ecommerce schema"
+    />
+    <meta name="author" content="Prathamesh Majalkar" />
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <!-- loader -->
+    <div class="loader-container">
+      <div class="flipping-cards">
+        <div class="card"><i class="fa-brands fa-html5"></i></div>
+        <div class="card"><i class="fa-brands fa-php"></i></div>
+        <div class="card"><i class="fa-brands fa-react"></i></div>
+        <div class="card"><i class="fa-brands fa-js"></i></div>
+        <div class="card"><i class="fa-brands fa-css3-alt"></i></div>
+        <div class="card"><i class="fa-solid fa-database"></i></div>
+        <div class="card"><i class="fa-brands fa-git-alt"></i></div>
+      </div>
+    </div>
+    <div class="main-content">
+      <!-- loader end -->
+      <nav class="header">
+        <div class="icon-nav shadow">
+          <a href="index.html" class="icon-btn" aria-label="Home">
+            <i class="fa-solid fa-house"></i>
+            <span class="tooltip-bubble">Home</span>
+          </a>
+
+          <a href="projects.html" class="icon-btn" aria-label="Projects">
+            <i class="fa-regular fa-folder"></i>
+            <span class="tooltip-bubble">Projects</span>
+          </a>
+
+          <a href="experience.html" class="icon-btn" aria-label="Experience">
+            <i class="fa-solid fa-briefcase"></i>
+            <span class="tooltip-bubble">Experience</span>
+          </a>
+
+          <a href="blogs.html" class="icon-btn active" aria-label="Blogs">
+            <i class="fa-regular fa-pen-to-square"></i>
+            <span class="tooltip-bubble">Blogs</span>
+          </a>
+
+          <a href="contact.html" class="icon-btn" aria-label="Contact">
+            <i class="fa-solid fa-envelope"></i>
+            <span class="tooltip-bubble">Contact</span>
+          </a>
+        </div>
+      </nav>
+
+      <style>
+        .blog-container {
+          max-width: 900px;
+          margin: auto;
+          background: #262222ff;
+          padding: 20px;
+          border-radius: 8px;
+        }
+
+        img.blog-image {
+          display: block;
+          margin: auto;
+          max-width: 100%;
+          height: auto;
+          border-radius: 6px;
+        }
+
+        pre code {
+          background-color: #121111ff;
+          display: block;
+          padding: 15px;
+          border-radius: 6px;
+        }
+
+        .copy-btn {
+          position: absolute;
+          right: 15px;
+          top: 15px;
+          font-size: 0.9rem;
+        }
+
+        .code-block {
+          position: relative;
+          margin-bottom: 20px;
+        }
+      </style>
+      <div class="container py-5">
+        <div class="blog-container shadow-sm">
+          <img
+            src="img/blogs/blog-2.png"
+            alt="Blog Image"
+            class="blog-image mb-4"
+          />
+
+          <h1 class="mb-3 text-center">MySQL Shutdown</h1>
+          <p class="text-muted text-center mb-4">
+            By <strong>Prathamesh Majalkar</strong> •
+            <small>Aug 10, 2025</small>
+          </p>
+
+          <p>
+            This is one of the most common errors in XAMPP. To overcome this
+            issue, follow these simple steps:
+          </p>
+
+          <h5>Steps:</h5>
+          <ul>
+            <li>
+              <strong>1:</strong> Close XAMPP or stop all the running services.
+            </li>
+            <li>
+              <strong>2:</strong> Open the XAMPP folder on your PC (usually
+              located in your <code>C:\</code> drive).
+            </li>
+            <li>
+              <strong>3:</strong> Inside the XAMPP folder, open the
+              <code>mysql</code> folder.
+            </li>
+            <li>
+              <strong>4:</strong> Copy the <code>data</code> folder and paste it
+              in the same location with the name <code>data_old</code>. This is
+              a backup to ensure you don’t lose your data.
+            </li>
+            <li>
+              <strong>5:</strong> Open the original <code>data</code> folder.
+            </li>
+            <li>
+              <strong>6:</strong>
+              <strong>Important — read fully before proceeding:</strong>
+              Delete the following 4 folders:
+              <ol>
+                <li><code>phpmyadmin</code></li>
+                <li><code>mysql</code></li>
+                <li><code>performance_schema</code></li>
+                <li><code>test</code></li>
+              </ol>
+              Then delete all the files in this folder except
+              <code>ibdata1</code>.
+            </li>
+            <li>
+              <strong>7:</strong> Go back to <code>C:\xampp\mysql</code> and
+              open the <code>backup</code> folder.
+            </li>
+            <li>
+              <strong>8:</strong> Copy all the contents from the
+              <code>backup</code> folder except the <code>ibdata1</code> file.
+            </li>
+            <li>
+              <strong>9:</strong> Paste them into the <code>data</code> folder
+              (where you deleted the files earlier).
+            </li>
+            <li>
+              <strong>10:</strong> Start XAMPP again — it should now work
+              properly.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+   <footer class="text-light mt-5">
+      <div class="container py-5">
+        <div class="row">
+          <!-- Column 1: About -->
+          <div class="col-lg-3 col-md-6 col-12 mb-4">
+            <h5>About Me</h5>
+            <p>
+              I'm a passionate programmer and software developer specializing in
+              building responsive, user-friendly websites and web applications
+              that solve real-world problems.
+            </p>
+          </div>
+
+          <!-- Column 2: Quick Links -->
+          <div class="col-lg-3 col-md-6 col-12 mb-4">
+            <h5>Quick Links</h5>
+            <ul class="list-unstyled">
+              <li>
+                <a href="index.html" class="text-light text-decoration-none mb-2"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a href="experience.html" class="text-light text-decoration-none mb-2"
+                  >Skills</a
+                >
+              </li>
+
+              <li>
+                <a href="projects.html" class="text-light text-decoration-none mb-2"
+                  >Projects</a
+                >
+              </li>
+              <li>
+                <a href="contact.html" class="text-light text-decoration-none mb-2"
+                  >Contact</a
+                >
+              </li>
+              <li>
+                <a href="blogs.html" class="text-light text-decoration-none mb-2"
+                  >Blog</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Column 3: Contact Info -->
+          <div class="col-lg-3 col-md-6 col-12 mb-4">
+            <h5>Contact</h5>
+            <ul class="list-unstyled">
+              <li>
+                Email:
+                <a
+                  href="mailto:majalkarprathamesh14@gmail.com"
+                  class="text-light text-decoration-none"
+                  >majalkarprathamesh14@gmail.com</a
+                >
+              </li>
+
+              <li>
+                Contact me : <a href="contact.html" class="text-deco">Click</a>
+              </li>
+              <li></li>
+            </ul>
+          </div>
+
+          <!-- Column 4: Social Media -->
+          <div class="col-lg-3 col-md-6 col-12 mb-4">
+            <h5>Follow Me</h5>
+            <div class="social-icons mt-3">
+              <a href="https://github.com/Raj14204" target="_blank"
+                ><i class="fab fa-github"></i
+              ></a>
+              <a
+                href="https://www.linkedin.com/in/prathamesh-mj/"
+                target="_blank"
+                ><i class="fab fa-linkedin"></i
+              ></a>
+
+              <a href="https://www.instagram.com/raj14204/"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="contact.html"><i class="fas fa-envelope"></i></a>
+            </div>
+            <button class="talk-button"><a href="contact.html" style="text-decoration: none;color: inherit;">Let's Talk</a></button>
+          </div>
+        </div>
+        <hr class="border-light" />
+        <p class="text-center mb-0">
+          &copy; 2025 Prathamesh Majalkar. Designed & developed by me with ❤️
+        </p>
+      </div>
+    </footer>
+    </div>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+      window.addEventListener("load", () => {
+        document.querySelector(".loader-container").classList.add("hidden");
+      });
+    </script>
+  </body>
+</html>

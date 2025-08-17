@@ -25,6 +25,9 @@
       </div>
     </div>
     <!-- loader end -->
+     <div class="main-content">
+
+
     <nav class="header">
       <div class="icon-nav shadow">
         <a href="index" class="icon-btn" aria-label="Home">
@@ -218,7 +221,7 @@
       <!-- project section end -->
     </div>
 
-    <footer class="text-light mt-5">
+   <footer class="text-light mt-5">
       <div class="container py-5">
         <div class="row">
           <!-- Column 1: About -->
@@ -236,28 +239,28 @@
             <h5>Quick Links</h5>
             <ul class="list-unstyled">
               <li>
-                <a href="#about" class="text-light text-decoration-none mb-2"
-                  >About</a
+                <a href="index.html" class="text-light text-decoration-none mb-2"
+                  >Home</a
                 >
               </li>
               <li>
-                <a href="#blog" class="text-light text-decoration-none mb-2"
+                <a href="experience.html" class="text-light text-decoration-none mb-2"
                   >Skills</a
                 >
               </li>
 
               <li>
-                <a href="#projects" class="text-light text-decoration-none mb-2"
+                <a href="projects.html" class="text-light text-decoration-none mb-2"
                   >Projects</a
                 >
               </li>
               <li>
-                <a href="#contact" class="text-light text-decoration-none mb-2"
+                <a href="contact.html" class="text-light text-decoration-none mb-2"
                   >Contact</a
                 >
               </li>
               <li>
-                <a href="#blog" class="text-light text-decoration-none mb-2"
+                <a href="blogs.html" class="text-light text-decoration-none mb-2"
                   >Blog</a
                 >
               </li>
@@ -288,17 +291,21 @@
           <div class="col-lg-3 col-md-6 col-12 mb-4">
             <h5>Follow Me</h5>
             <div class="social-icons mt-3">
-              <a href="https://github.com/your-username" target="_blank"
+              <a href="https://github.com/Raj14204" target="_blank"
                 ><i class="fab fa-github"></i
               ></a>
-              <a href="https://www.linkedin.com/in/your-profile" target="_blank"
+              <a
+                href="https://www.linkedin.com/in/prathamesh-mj/"
+                target="_blank"
                 ><i class="fab fa-linkedin"></i
               ></a>
 
-              <a href="#"><i class="fab fa-instagram"></i></a>
-              <a href="#"><i class="fas fa-envelope"></i></a>
+              <a href="https://www.instagram.com/raj14204/"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="contact.html"><i class="fas fa-envelope"></i></a>
             </div>
-            <button class="talk-button">Let's Talk</button>
+            <button class="talk-button"><a href="contact.html" style="text-decoration: none;color: inherit;">Let's Talk</a></button>
           </div>
         </div>
         <hr class="border-light" />
@@ -307,15 +314,14 @@
         </p>
       </div>
     </footer>
-
+</div>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/main.js"></script>
 
-    <script>
-      window.addEventListener("load", () => {
-        document.querySelector(".loader-container").style.display = "none";
-        document.querySelector(".main-content").style.display = "block";
-      });
-    </script>
+  <script>
+    window.addEventListener("load", () => {
+      document.querySelector(".loader-container").classList.add("hidden");
+    });
+  </script>
   </body>
 </html>
